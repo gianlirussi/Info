@@ -13,7 +13,21 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+#contenido{
+            width: 90%;
+            margin: 0px auto;
+}
+#preguntas{
+           front-family: Arial;
+           text-align: center;
+           margin: 0px auto;
+           background: #ffffff;
+           font-weight: normal;
+           font-weight: 900;
+}
 </style>
+
 <nav class="navbar navbar-dark bg-primary p-1">
     <ul class="nav justify-content-end">
   <li class="nav-item">
@@ -32,7 +46,7 @@
 <p class="h1 m-3" align="center">¡Empezemos!</p>
 <div align="center"><o class="form-label h6 m-2">Trata de responder la mayor cantidad de preguntas correctamente</o></div>
 
-<div class="nav justify-content-md-center p-5">
+<div class="nav justify-content-md-center p-5" id="contenido">
     <form action="" method="POST">
     {% csrf_token %}
         {% for key,value in data.items%}
@@ -47,7 +61,7 @@
         <p class="h5 m-1"> {% else %}</p>
         <div align="center" class="alert alert-danger col-lg-11" role="alert">{{value.categoria}}</div>
         {% endif %}
-        <div align="center"> <p class="h6 m-1">{{key}}</p> <br></div>
+        <div align="center"> <p class="h6 m-1" id="preguntas">{{key}}</p> <br></div>
                 <select name="{{forloop.counter}}">
                 {% for opcion in value.opciones %}
                     <option value="{{opcion.id}}">{{opcion.opcion}}</option>
